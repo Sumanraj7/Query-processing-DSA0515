@@ -1,0 +1,18 @@
+import pandas as pd
+
+# Sample sales data
+data = {
+    'Item': ['A', 'B', 'A', 'B', 'C', 'A', 'C', 'B', 'C'],
+    'SaleValue': [100, 200, 150, 250, 300, 200, 350, 400, 100],
+    'Quantity': [1, 2, 1, 3, 2, 1, 1, 2, 1]
+}
+
+# Create a DataFrame
+sales_data = pd.DataFrame(data)
+
+# Create a pivot table to summarize the total units sold for each item
+pivot_table = sales_data.pivot_table(values='Quantity', index='Item', aggfunc='sum')
+
+# Display the pivot table
+print("Pivot Table - Item Wise Units Sold:")
+print(pivot_table)

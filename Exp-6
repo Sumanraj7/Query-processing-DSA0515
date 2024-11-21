@@ -1,0 +1,18 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import yfinance as yf
+
+# Fetch historical stock data for Alphabet Inc. (GOOG)
+ticker = 'GOOG'
+start_date = '2020-04-01'
+end_date = '2020-09-30'
+data = yf.download(ticker, start=start_date, end=end_date)
+
+# Create a scatter plot of trading volume vs stock prices
+plt.figure(figsize=(12, 6))
+plt.scatter(data['Close'], data['Volume'], color='blue', alpha=0.5)
+plt.title('Scatter Plot of Trading Volume vs Stock Prices of Alphabet Inc. (GOOG)\nFrom {} to {}'.format(start_date, end_date), fontsize=14)
+plt.xlabel('Stock Prices (Close)', fontsize=12)
+plt.ylabel('Trading Volume', fontsize=12)
+plt.grid()
+plt.show()

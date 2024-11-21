@@ -1,0 +1,24 @@
+import pandas as pd
+
+# Sample sales data
+data = {
+    'Item': ['A', 'B', 'A', 'B', 'C', 'A', 'C', 'B', 'C'],
+    'SaleValue': [100, 200, 150, 250, 300, 200, 350, 400, 100],
+    'Quantity': [1, 2, 1, 3, 2, 1, 1, 2, 1]
+}
+
+# Create a DataFrame
+sales_data = pd.DataFrame(data)
+
+# Create a pivot table to summarize the total sale value for each item
+pivot_table = sales_data.pivot_table(values='SaleValue', index='Item', aggfunc='sum')
+
+# Find the maximum and minimum sale values
+max_sale_value = pivot_table['SaleValue'].max()
+min_sale_value = pivot_table['SaleValue'].min()
+
+# Display the pivot table and the results
+print("Pivot Table:")
+print(pivot_table)
+print("\nMaximum Sale Value:", max_sale_value)
+print("Minimum Sale Value:", min_sale_value)

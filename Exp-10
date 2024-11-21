@@ -1,0 +1,17 @@
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame with 10 rows and 4 columns of random values
+np.random.seed(0)  # For reproducibility
+data = np.random.randn(10, 4)  # Random values from a normal distribution
+df = pd.DataFrame(data, columns=['A', 'B', 'C', 'D'])
+
+# Function to highlight negative numbers in red and positive numbers in black
+def highlight_negative_positive(s):
+    return ['color: red' if v < 0 else 'color: black' for v in s]
+
+# Apply the highlighting function to the DataFrame
+styled_df = df.style.apply(highlight_negative_positive)
+
+# Display the styled DataFrame
+styled_df
